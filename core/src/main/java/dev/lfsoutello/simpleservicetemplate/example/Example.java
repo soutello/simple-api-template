@@ -1,18 +1,37 @@
 package dev.lfsoutello.simpleservicetemplate.example;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-@Setter
-@Getter
 @Entity
 public class Example {
    @Id
    @GeneratedValue
    private Long id;
    private String text;
+
+   public Long getId() {
+      return id;
+   }
+
+   public void setId(Long id) {
+      this.id = id;
+   }
+
+   public String getText() {
+      return text;
+   }
+
+   public void setText(String text) {
+      this.text = text;
+   }
+
+   @Override
+   public String toString() {
+      return "Example{" +
+              "id=" + id +
+              ", text='" + text + '\'' +
+              '}';
+   }
 }

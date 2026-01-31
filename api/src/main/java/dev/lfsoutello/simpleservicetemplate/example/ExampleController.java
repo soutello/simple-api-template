@@ -1,17 +1,19 @@
 package dev.lfsoutello.simpleservicetemplate.example;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/example")
 public class ExampleController {
+    public static final Logger log = LoggerFactory.getLogger(ExampleController.class);
     private final ExampleService exampleService;
+
+    public ExampleController(ExampleService exampleService) {
+        this.exampleService = exampleService;
+    }
 
     @PostMapping
     public ResponseEntity<ExampleDTO> create(@RequestBody ExampleForm body) {

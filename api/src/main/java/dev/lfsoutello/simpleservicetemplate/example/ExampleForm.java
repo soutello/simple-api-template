@@ -1,12 +1,20 @@
 package dev.lfsoutello.simpleservicetemplate.example;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Setter
-@Getter
-@ToString
 public class ExampleForm {
     private String text;
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "ExampleForm{" +
+                "text='" + text + '\'' +
+                '}';
+    }
 }

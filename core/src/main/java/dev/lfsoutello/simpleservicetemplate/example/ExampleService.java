@@ -1,14 +1,16 @@
 package dev.lfsoutello.simpleservicetemplate.example;
 
 import dev.lfsoutello.simpleservicetemplate.exception.ExampleNotFoundException;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class ExampleService {
 
     private final ExampleRepository exampleRepository;
+
+    public ExampleService(ExampleRepository exampleRepository) {
+        this.exampleRepository = exampleRepository;
+    }
 
     public ExampleDTO create(String text) {
         Example example = new Example();
